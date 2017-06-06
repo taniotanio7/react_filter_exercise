@@ -32,5 +32,9 @@ Files that should be edited:
 
 Do not edit any other files.
 
+### Final result
+Here's how this application should work: https://gfycat.com/SimilarDefensiveCatbird
+
 ## Note
-Take commented ellipsises (...) as hints where to put lines of code. **Don't forget to remove unnecessary chunks of code such as unused methods and variables!**
+Take commented ellipsises (...) as hints where to put lines of code. **Don't forget to remove unnecessary chunks of code such as unused methods and variables!**.
+Feel free to use `lodash` in your components!
