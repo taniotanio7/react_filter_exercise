@@ -7,27 +7,34 @@ import { bindActionCreators } from "redux";
 
 class People extends Component {
   static propTypes = {
-    // ...
+    people: PropTypes.array
   };
 
-  getPeopleDisplay() {
-    return <>{this.people.map(person => (
-      <div className="App-box" key={person.id}>{person.name}</div>
-    ))}</>;
-  }
+  getPeopleList = () => this.props.people.map(
+    person => (
+      <div className="App-box" key={person.id}>
+        {person.name}
+      </div>
+    )
+  )
 
   render() {
-    return <div>{this.getPeopleDisplay}</div>;
+    const peopleList = this.getPeopleList()
+    return <div>{peopleList}</div>;
   }
 }
 
 const mapStateToProps = ({people}) => ({
-  people
+  people: people.people
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  // ...
-}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      // ...
+    },
+    dispatch
+  );
 
 export default connect(
   mapStateToProps,
