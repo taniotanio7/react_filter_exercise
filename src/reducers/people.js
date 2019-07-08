@@ -32,7 +32,8 @@ export default function browse(state = initialState, action) {
     case types.DO_NOTHING:
       return state;
 
-    // ...
+    case types.CHANGE_FILTER_QUERY:
+      return {...initialState, filterQuery: action.payload}
 
     default:
       return state;
