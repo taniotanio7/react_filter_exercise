@@ -17,7 +17,7 @@ class Filter extends Component {
   render() {
     return (
       <div className='App-box'>
-        <input onChange={this.saveInputOnChange}></input>
+        <input onChange={this.saveInputOnChange} placeholder="Filter"></input>
       </div>
     );
   }

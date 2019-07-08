@@ -7,16 +7,25 @@ import { bindActionCreators } from "redux";
 
 class People extends Component {
   static propTypes = {
-    people: PropTypes.array
+    people: PropTypes.array,
+    filterQuery: PropTypes.string
   };
 
-  getPeopleList = () => this.props.people.map(
-    person => (
-      <div className="App-box" key={person.id}>
-        {person.name}
-      </div>
+  getPeopleList = () => {
+    let filterPeople = () => true;
+
+    if (this.props.filterQuery !== '') {
+      filterPeople = ({name}) => name.toLowerCase().includes(this.props.filterQuery.toLowerCase());
+    }
+
+    return this.props.people.filter(filterPeople).map(
+      person => (
+        <div className="App-box" key={person.id}>
+          {person.name}
+        </div>
+      )
     )
-  )
+  }
 
   render() {
     const peopleList = this.getPeopleList()
@@ -25,7 +34,8 @@ class People extends Component {
 }
 
 const mapStateToProps = ({people}) => ({
-  people: people.people
+  people: people.people,
+  filterQuery: people.filterQuery
 });
 
 const mapDispatchToProps = dispatch =>
